@@ -1,3 +1,6 @@
+import pyfiglet
+ascii_banner = pyfiglet.figlet_format("QuizQuest", justify="center", width=100)
+
 questions = [
     {
         'prompt': 'Which of the following is the correct extension of the Python file?',
@@ -55,6 +58,7 @@ def runQuiz(questions):
     score = 0
     userChoice = True
 
+    print(ascii_banner)
     for question in questions:
         if(userChoice):
             print(question['prompt'])
@@ -69,6 +73,7 @@ def runQuiz(questions):
                             print("Correct, hooray..!\n")
                             while True:
                                 userResponse = input("Are you sure want to Execute next Question (Y/N) : ").strip().upper() 
+                                print()
                                 if (userResponse=="N") :
                                     userChoice = False
                                     break
@@ -82,6 +87,7 @@ def runQuiz(questions):
                             print(f"Wrong.. The correct answer is : {question['answer']}\n")
                             while True:
                                 userResponse = input("Are you sure want to Execute next Question (Y/N) : ").strip().upper() 
+                                print()
                                 if (userResponse=="N") :
                                     userChoice = False
                                     break
@@ -99,6 +105,5 @@ def runQuiz(questions):
             print(f"\nThis is your total marks - {score}%")
             print("Thank You..!")
             break
-
 
 runQuiz(questions)
