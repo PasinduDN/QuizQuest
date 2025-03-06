@@ -50,3 +50,11 @@ questions = [
         'answer': 2 
     }
 ]
+
+def runQuiz(questions):
+    for question in questions:
+        print(question['prompt'])
+        for option in question['options']:
+            print(option)
+            
+runQuiz(questions)
