@@ -52,9 +52,29 @@ questions = [
 ]
 
 def runQuiz(questions):
+
+    score = 0
+
     for question in questions:
         print(question['prompt'])
         for option in question['options']:
             print(option)
-            
+        while True:
+            try:
+                answer = int(input("Enter your answer [1, 2, 3 or 4] : "))
+                if (answer==1 or answer==2 or answer==3 or answer==4):
+                    if(answer == question['answer']):
+                        score += 10
+                        print("Correct, hooray..!")
+                        print(f"This is your total marks ({score}/100)\n")
+                        break
+                    else:
+                        print(f"Wrong.. The correct answer is : {question['answer']}")
+                        print(f"This is your total marks ({score}/100)\n")
+                        break
+                else:
+                    print(f"'{answer}' is Invalid input... Please enter a valid number.")
+            except ValueError:
+                  print(f"'{answer}' is Invalid input... Please enter a valid number.")
+
 runQuiz(questions)
